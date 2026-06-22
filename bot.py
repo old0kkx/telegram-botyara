@@ -1,5 +1,4 @@
 import random
-import os
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -9,7 +8,7 @@ from telegram.ext import (
     filters
 )
 
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = "8627327214:AAFMrBR4GxV66hxgnNIZF9e3MeiH7R73Y-U"
 
 games = {}
 
