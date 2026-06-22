@@ -1,4 +1,5 @@
 import random
+import os
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -8,7 +9,7 @@ from telegram.ext import (
     filters
 )
 
-TOKEN = "8627327214:AAFMrBR4GxV66hxgnNIZF9e3MeiH7R73Y-U"
+TOKEN = os.getenv("BOT_TOKEN")
 
 games = {}
 
@@ -61,10 +62,16 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         games[chat_id] = random.randint(1, 100)
 
 
-app = ApplicationBuilder().token(TOKEN).build()
+import asyncio
 
-app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("startgame", start_game))
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+async def main():
+    app = ApplicationBuilder().token(TOKEN).build()
 
-app.run_polling()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("startgame", start_game))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
+    await app.run_polling()
+
+if __name__ == "__main__":
+    asyncio.run(main())
