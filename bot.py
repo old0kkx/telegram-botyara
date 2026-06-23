@@ -1,3 +1,5 @@
+print ("test test test")
+
 import random
 import os
 from telegram import Update
