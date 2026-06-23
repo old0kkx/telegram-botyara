@@ -8,7 +8,7 @@ from telegram.ext import (
     filters
 )
 
-TOKEN = "8627327214:AAFMrBR4GxV66hxgnNIZF9e3MeiH7R73Y-U"
+TOKEN = os.getenv("TOKEN")
 
 games = {}
 
