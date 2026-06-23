@@ -65,7 +65,7 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("startgame", start_game))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     app.run_polling()
 
