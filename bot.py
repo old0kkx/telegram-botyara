@@ -66,7 +66,7 @@ import asyncio
 from telegram.ext import ApplicationBuilder
 
 def main():
-    app =
+    app=
 ApplicationBuilder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
