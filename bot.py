@@ -63,14 +63,19 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 import asyncio
 
-async def main():
-    app = ApplicationBuilder().token(TOKEN).build()
+from telegram.ext import ApplicationBuilder
+
+def main():
+    app =
+ApplicationBuilder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("startgame", start_game))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+app.add_handler(CommandHandler("startgame", start_game))
 
-    await app.run_polling()
+app.add_handler(MessageHandler(filters.TEXT& ~filters.COMMAND, handle_message))
 
-if __name__ == "__main__":
-    asyncio.run(main())
+    app.run_polling()
+
+
+if name =="main":
+    main()
